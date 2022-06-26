@@ -1,46 +1,33 @@
-# Getting Started with Create React App
+# record-of-my-feelings
+- [설계](#설계)
+- [트러블슈팅](#트러블슈팅)
+- [학습내용](#학습내용)
+## 설계
+### 목표
+- `react`와 `typescript`를 이용해 기분 기록 웹사이트 만들기
+  - `typescript` 사용법 익히기
+  - `tailwind` 사용법 익히기
+### 기술 스택
+- typescript
+- react
+- tailwind
+### 레이아웃
+- 로고 이미지
+- 응원 텍스트
+  - API 사용. 혹은 랜덤으로 직접 만든 텍스트 띄움.
+- 입력 받은 이모티콘의 개수를 기분별로 표시
+- 기분 기록장
+  - 모달에서 사용자가 선택한 이모티콘 삽입
+  - 이모티콘 click or hover 시 적었던 일기가 뜸
+- 기분 이모티콘 추가 버튼
+  - 기분 이모티콘, 일기 입력 받는 모달 생성
+<img src="https://user-images.githubusercontent.com/104069346/175812597-f03ea43f-a51c-4bda-b8f4-ef5c66327bc6.jpg"></img>
+## 트러블슈팅
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 학습내용
+- 모달에서 받은 입력값을 메인에 표시할 때 useRef를 사용하려 했음.
+  - useRef(uncontrolled component)는 DOM에 직접 접근하는 방식임으로 지양. useState, react-hook-form 사용이 좋음.
+  - controlled component는 React controlled에 의해 처리. 
+- tailwind
+  - A utility-first CSS framework
+  - HTML 태그에 CSS를 직접 적는 방식이라 편리
