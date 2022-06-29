@@ -7,7 +7,7 @@ export default function AddModal({
 }: {
   isOpenModal: boolean;
   setIsOpenModal: Dispatch<SetStateAction<boolean>>;
-  addItemHandler: Function;
+  addItemHandler: (item: { diary: string; emoji: string }) => void;
 }) {
   const [diary, setDiary] = useState<string>("");
   const [selected, setSelected] = useState("delight");
