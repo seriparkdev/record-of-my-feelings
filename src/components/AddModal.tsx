@@ -7,7 +7,7 @@ export default function AddModal({
 }: {
   isOpenModal: boolean;
   setIsOpenModal: Dispatch<SetStateAction<boolean>>;
-  addItemHandler: (item: { diary: string; emoji: string }) => void;
+  addItemHandler: (item: { diary: string; emoji: string; number: number }) => void;
 }) {
   const [diary, setDiary] = useState<string>("");
   const [selected, setSelected] = useState("delight");
@@ -18,9 +18,11 @@ export default function AddModal({
 
   function submitHandler(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const item: { diary: string; emoji: string } = {
+  let index = 0;
+    const item: { diary: string; emoji: string; number: number} = {
       diary: diary,
       emoji: selected,
+      number: index
     };
     addItemHandler(item);
   }
