@@ -7,10 +7,11 @@ export default function AddModal({
 }: {
   isOpenModal: boolean;
   setIsOpenModal: Dispatch<SetStateAction<boolean>>;
-  addItemHandler: (item: { diary: string; emoji: string; number: number }) => void;
+  addItemHandler: (item: { diary: string; emoji: string; number: number; image: string }) => void;
 }) {
   const [diary, setDiary] = useState<string>("");
   const [selected, setSelected] = useState("delight");
+  const [urlImg, setUrlImg] = useState<string>('');
 
   const handlechange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSelected(e.target.value);
@@ -19,12 +20,14 @@ export default function AddModal({
   function submitHandler(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
   let index = 0;
-    const item: { diary: string; emoji: string; number: number} = {
+    const item: { diary: string; emoji: string; number: number; image: string} = {
       diary: diary,
       emoji: selected,
-      number: index
+      number: index,
+      image: urlImg
     };
     addItemHandler(item);
+    // setIsOpenModal(!isOpenModal)
   }
 
   return (
@@ -43,7 +46,10 @@ export default function AddModal({
             id="diary"
             onChange={(e) => setDiary(e.target.value)}
           ></input>
-          <input type="file" accept="image/*"></input>
+          
+          어떤 사진을 기록하고 싶나요?
+          <input type="text" placeholder="URL" onChange={(e) => setUrlImg(e.target.value)}></input>
+
           <span>오늘 나의 기분은</span>
 
           <div className="flex flex-row">
