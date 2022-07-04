@@ -46,12 +46,62 @@ export default function Home() {
   return (
     <>
       <div className="text-center">30DAYS</div>
+
+      <div className="flex border-4 border-black">
+        <>
+    {emojiData.map((data) => {
+      if (data.name === 'delight'){
+      return(
+        <>
+        <img src ={data.image} alt={data.name} className="w-10"/>
+        {items.filter(item => item.emoji === 'delight').length}
+        </>
+      );}
+      else if (data.name === 'sad') {
+        return(
+          <>
+        <img src ={data.image} alt={data.name} className="w-10"/>
+        {items.filter(item => item.emoji === 'sad').length}
+        </>
+        )
+      }
+      else if (data.name === 'anger') {
+        return(
+          <>
+        <img src ={data.image} alt={data.name} className="w-10"/>
+        {items.filter(item => item.emoji === 'anger').length}
+        </>
+        )
+      }
+      else if (data.name === 'tired') {
+        return(
+          <>
+        <img src ={data.image} alt={data.name} className="w-10"/>
+        {items.filter(item => item.emoji === 'tired').length}
+        </>
+        )
+      }
+      else if (data.name === 'monotonous') {
+        return(
+          <>
+        <img src ={data.image} alt={data.name} className="w-10"/>
+        {items.filter(item => item.emoji === 'monotonous').length}
+        </>
+        )
+      }
+
+      
+      })}
+    
+    </>
+    </div>
+
       <main className="flex flex-row">
         <span className="flex flex-row flex-wrap border-4 border-black h-96 w-1/2">
           {items &&
             items.map((item) =>
               emojiData.map((data) => {
-                if (emojiIndex <= 29 && item.emoji === data.name) {
+                if (item.emoji === data.name) {
                   item.number = ++emojiIndex;
                   return (
                     <div key={data.name}>
@@ -63,19 +113,15 @@ export default function Home() {
                         }}
                       >
                         {emojiIndex}
-                        {/* <img
+                        <img
                           src={data.image}
                           alt={data.name}
                           className="w-10"
-                        /> */}
+                        />
                       </button>
                     </div>
                   );
-                } else if (emojiIndex === 30 && item.emoji===data.name) {
-                  alert("30일까지만 입력할 수 있습니다.");
-                  ++emojiIndex
-                }
-
+                } 
               })
             )}
         </span>
