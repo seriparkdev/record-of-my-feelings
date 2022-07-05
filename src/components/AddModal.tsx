@@ -19,7 +19,7 @@ export default function AddModal({
 
   function submitHandler(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-  let index = 0;
+  const index = 0;
     const item: { diary: string; emoji: string; number: number; image: string} = {
       diary: diary,
       emoji: selected,
@@ -27,7 +27,7 @@ export default function AddModal({
       image: urlImg
     };
     addItemHandler(item);
-    // setIsOpenModal(!isOpenModal)
+    setIsOpenModal(!isOpenModal);
   }
 
   return (
