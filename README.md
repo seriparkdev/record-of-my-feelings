@@ -22,7 +22,9 @@
 - 기분 이모티콘 추가 버튼
   - 기분 이모티콘, 일기 입력 받는 모달 생성
 <img src="https://user-images.githubusercontent.com/104069346/175812597-f03ea43f-a51c-4bda-b8f4-ef5c66327bc6.jpg"></img>
+
 ## 트러블슈팅
+- button element의 value에 emoji index값을 넣고 onClick시 index값을 얻어오려 했으나, button element에는 event.target.value의 value 값을 얻을 수가 없음. 다른 접근 필요.
 
 ## 학습내용
 - 모달에서 받은 입력값을 메인에 표시할 때 useRef를 사용하려 했음.
