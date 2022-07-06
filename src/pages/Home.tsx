@@ -11,24 +11,24 @@ interface Data {
 export default function Home() {
   const emojiData = [
     {
-      name: "delight",
-      image: "/웃음.png",
+      name: "happy",
+      image: "/happy.png",
     },
     {
       name: "sad",
-      image: "/logo192.png",
+      image: "/sad.png",
     },
     {
-      name: "anger",
-      image: "/웃음.png",
+      name: "angry",
+      image: "/angry.png",
     },
     {
       name: "tired",
-      image: "/웃음.png",
+      image: "/tired.png",
     },
     {
       name: "monotonous",
-      image: "/웃음.png",
+      image: "/monotonous.png",
     },
   ];
 
@@ -47,7 +47,9 @@ export default function Home() {
 
   return (
     <>
-      <div className="text-center">30DAYS</div>
+      <div className="text-center">
+      <img src="/logo.png" alt="logo" className="w-24" />
+      </div>
       <div className="flex border-4 border-black">
         <img src = {emojiData[0].image} alt ={emojiData[0].name} className="w-10"/>
         {items.filter(item => item.emoji === 'delight').length}
@@ -73,7 +75,7 @@ export default function Home() {
                   return (
                     <div key={data.name}>
                       <button
-                        className="cursor-pointer border-4 w-10 h-10"
+                        className="cursor-pointer border-4 w-20 h-10"
                         value={emojiIndex}
                         onClick={(e: any) => {
                           setIndex(e.target.value)
@@ -83,8 +85,9 @@ export default function Home() {
                         <img
                           src={data.image}
                           alt={data.name}
-                          className="w-10"
+                          className="w-56 h-30"
                         />
+                       
                       </button>
                     </div>
                   );

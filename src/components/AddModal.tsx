@@ -38,13 +38,15 @@ export default function AddModal({
           onClick={() => setIsOpenModal(!isOpenModal)}
         ></div>
         <div className="flex fixed top-2/4 left-1/2 translate-x-[-50%] translate-y-[-50%] flex flex-col p-8 rounded-lg bg-slate-300 w-[450px] h-[500px]">
-          <label htmlFor="diar">오늘 나의 하루</label>
+          <label htmlFor="diary">오늘 나의 하루</label>
           <input
             type="text"
             placeholder="오늘 있었던 일"
             className="h-40"
             id="diary"
-            onChange={(e) => setDiary(e.target.value)}
+            onChange={(e) => setDiary(e.target.value)
+            }
+            required
           ></input>
           
           어떤 사진을 기록하고 싶나요?
@@ -53,19 +55,18 @@ export default function AddModal({
           <span>오늘 나의 기분은</span>
 
           <div className="flex flex-row">
-            <label htmlFor="delight">
               <input
                 type="radio"
                 name="emoji"
-                value="delight"
-                id="delight"
-                checked={selected === "delight"}
+                value="happy"
+                id="happy"
+                checked={selected === "happy"}
                 onChange={handlechange}
+                
               />
-              <img src="/웃음.png" alt="기쁨" className="h-10 w-10" />
+              <label htmlFor="happy"><img src= "/unclickedHappy.png" alt="happy" className="w-10 h-10" />
             </label>
 
-            <label htmlFor="sad">
               <input
                 type="radio"
                 name="emoji"
@@ -74,40 +75,47 @@ export default function AddModal({
                 checked={selected === "sad"}
                 onChange={handlechange}
               />
-              슬픔
+              <label htmlFor="sad">
+              <img src="/unclickedSad.png" alt="sad" className="h-10 w-10" />
             </label>
 
-            <label>
+           
               <input
                 type="radio"
                 name="emoji"
-                value="anger"
-                checked={selected === "anger"}
+                value="angry"
+                id='angry'
+                checked={selected === "angry"}
                 onChange={handlechange}
               />
-              화남
+               <label htmlFor="angry">
+              <img src="/unclickedAngry.png" alt="angry" className="h-10 w-10" />
             </label>
 
-            <label>
+          
               <input
                 type="radio"
                 name="emoji"
                 value="tired"
+                id="tired"
                 checked={selected === "tired"}
                 onChange={handlechange}
               />
-              지침
+                <label htmlFor="tired">
+              <img src="/unclickedTired.png" alt="tired" className="h-10 w-10" />
             </label>
 
-            <label>
+          
               <input
                 type="radio"
                 name="emoji"
                 value="monotonous"
+                id="monotonous"
                 checked={selected === "monotonous"}
                 onChange={handlechange}
               />
-              단조로운
+                <label htmlFor="monotonous">
+              <img src="/unclickedMonotonous.png" alt="monotonous" className="h-10 w-10" />
             </label>
           </div>
 
