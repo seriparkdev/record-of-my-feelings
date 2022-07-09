@@ -3,17 +3,17 @@
 @tailwind utilities;
 
 @font-face {
-    font-family: 'KoPubDotumMedium';
-     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/KoPubDotumMedium.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'ONE-Mobile-Title';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-Title.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
 html,
 body {
   height: 100%;
   font-weight: 600;
-  font-family: 'KoPubDotumMedium';
+  font-family: 'ONE-Mobile-Title';
   background-color: #f5f6f8;
 }
 

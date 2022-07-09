@@ -103,7 +103,7 @@ export default function Home() {
         </div>
         <button
           type="button"
-          className="border-[#698476] border-2 rounded-lg  text-[#698476] text-xs w-16 p py-1 absolute right-0 mr-3 mt-2 hover:bg-[#dee2d6]"
+          className="border-white text-white md:border-[#698476] border-2 rounded-lg md:text-[#698476] text-xs w-16 p py-1 absolute top-3 md:top-14 right-0 mr-3 md:mt-1 hover:bg-white hover:text-[#698476] md:hover:bg-[#dee2d6]"
           onClick={() => setIsOpenModal(!isOpenModal)}
         >
           일기 쓰기
