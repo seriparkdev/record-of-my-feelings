@@ -124,6 +124,7 @@ export default function Home() {
                     <button
                       className="cursor-pointer bg-[#f5f6f8] w-8 h-5 text-xs text-[#698476]"
                       value={emojiIndex}
+                      // eslint-disable-next-line
                       onClick={(e: any) => {
                         setIndex(e.target.value);
                       }}
