@@ -50,7 +50,7 @@ export default function Home() {
       </div>
     );
   }
-  const [randomValue] = useState(Math.floor(Math.random() * 3));
+  const [randomValue] = useState(Math.floor(Math.random() * 4));
 
   return (
     <>
@@ -121,7 +121,7 @@ export default function Home() {
                   >
                     <span>
                       <button
-                        className="cursor-pointer bg-[#f5f6f8] w-8 h-5 text-xs text-[#698476]"
+                        className="cursor-pointer border-[#A68B80] border-2 w-8 h-5 text-xs text-[#A68B80] rounded-lg"
                         value={emojiIndex}
                         // eslint-disable-next-line
                     onClick={(e: any) => {
@@ -141,7 +141,7 @@ export default function Home() {
               })
             : emptyStateHandler()}
         </div>
-        <span className="md:w-3/5 p-4 md:h-full md:overflow-y-auto bg-[#ECEAE1] px-10 text-[#645452]">
+        <span className="md:w-3/5 p-4 md:h-full md:overflow-y-auto bg-[#ECEAE1] px-10 text-[#A68B80]">
           {items.length > 0
             ? items.map((item) => {
                 if (index == item.number) {

@@ -54,19 +54,22 @@ export default function AddModal({
         <div className="flex fixed top-2/4 left-1/2 translate-x-[-50%] translate-y-[-50%] flex md:flex-col p-5 rounded-lg bg-[#f5f6f8]  w-10/12 h-5/6 text-center">
           <span
             onClick={() => setIsOpenModal(!isOpenModal)}
-            className="absolute top-0 right-0 pt-3 md:pt-5 pr-5 md:pr-9 cursor-pointer text-base md:text-2xl text-[#698476] hover:text-[#698476] "
+            className="absolute top-0 right-0 pt-3 md:pt-5 pr-5 md:pr-9 cursor-pointer text-base md:text-2xl text-[#A68B80] hover:text-[#698476] hover:text-[#698476] "
           >
             X
           </span>
 
           <div className="flex flex-col md:flex-row w-full md:h-full">
             <div className="flex flex-col mr-5 w-full h-2/4 md:h-full md:w-3/4">
-              <label htmlFor="diary" className="pb-3 md:pb-4 text-xs">
+              <label
+                htmlFor="diary"
+                className="pb-3 md:pb-4 text-xs text-[#A68B80]"
+              >
                 오늘 나의 하루
               </label>
               <textarea
                 placeholder="오늘 있었던 일"
-                className="outline-[#698476] p-7 h-full text-xs rounded-lg "
+                className="outline-[#A68B80] p-7 h-full text-xs md:text-base rounded-lg text-[#525558]"
                 id="diary"
                 onChange={(e) => setDiary(e.target.value)}
                 required
@@ -75,17 +78,21 @@ export default function AddModal({
 
             <div className="mt-5 md:mt-20 md:w-1/4">
               <div className="flex flex-col mb-5 md:mb-10 m-auto">
-                <span className="pb-3 text-xs">오늘의 사진</span>
+                <span className="pb-3 text-xs  text-[#A68B80]">
+                  오늘의 사진
+                </span>
                 <input
                   type="text"
                   placeholder="URL"
                   onChange={(e) => setUrlImg(e.target.value)}
-                  className="outline-[#698476] text-xs rounded-lg text-center h-5 "
+                  className="text-[#525558] outline-[#A68B80] text-xs rounded-lg text-center h-5 "
                 ></input>
               </div>
 
               <div className="flex flex-col">
-                <span className="pb-3 text-xs">오늘의 기분</span>
+                <span className="pb-3 text-xs  text-[#A68B80]">
+                  오늘의 기분
+                </span>
                 <div className="flex flex-row justify-center flex-wrap xl:flex-nowrap emojiBtn w-full">
                   <input
                     type="radio"
@@ -171,7 +178,7 @@ export default function AddModal({
               <div>
                 <button
                   type="submit"
-                  className="border-[#698476] border-4 mt-5 w-10 h-8 rounded-md hover:text-[#698476] text-xs"
+                  className="border-[#A68B80] border-4 mt-5 w-10 h-8 rounded-md hover:text-[#698476]  text-[#A68B80] text-xs hover:border-[#698476]"
                 >
                   등록
                 </button>

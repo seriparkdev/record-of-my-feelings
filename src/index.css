@@ -27,7 +27,7 @@ body {
 
 .emojiBtn input[type=radio]:checked + label > img {
   border-style: solid;
-  border-color: #698476;
+  border-color: #A68B80;
   border-width: 2px;
   border-radius: 5px;
 } 
