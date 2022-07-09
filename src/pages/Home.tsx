@@ -102,7 +102,7 @@ export default function Home() {
         </div>
         <button
           type="button"
-          className="border-white text-white md:border-[#698476] border-2 rounded-lg md:text-[#698476] text-xs w-16 p py-1 absolute top-3 md:top-14 right-0 mr-3 md:mt-1 hover:bg-white hover:text-[#698476] md:hover:bg-[#dee2d6]"
+          className="border-[#f5f6f8] md:border-[#698476] border-2 rounded-lg md:text-[#698476] text-xs w-16 p py-1 absolute top-3 md:top-14 text-[#f5f6f8] right-0 mr-3 md:mt-1 hover:bg-white hover:text-[#698476] md:hover:bg-[#dee2d6]"
           onClick={() => setIsOpenModal(!isOpenModal)}
         >
           일기 쓰기
@@ -164,7 +164,7 @@ export default function Home() {
             : emptyStateHandler()}
         </span>
       </div>
-      <div className="absolute top-0 text-white md:text-[#698476] text-[4px] md:text-xs md:inset-y-auto pl-4 mt-5 md:mt-4">
+      <div className="absolute top-0 text-white md:text-[#698476] text-[12px] md:text-xs md:inset-y-auto pl-4 mt-5 md:mt-4">
         <span>{pepTalk[randomValue]}</span>
       </div>
       {isOpenModal && (
