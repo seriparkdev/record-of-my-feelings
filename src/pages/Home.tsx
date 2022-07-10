@@ -26,35 +26,51 @@ export default function Home() {
       </div>
     );
   }
+
+  const emojiData = [
+    {
+      name: "happy",
+      image: "/happy.png",
+    },
+    {
+      name: "sad",
+      image: "/sad.png",
+    },
+    {
+      name: "angry",
+      image: "/angry.png",
+    },
+    {
+      name: "tired",
+      image: "/tired.png",
+    },
+    {
+      name: "monotonous",
+      image: "/monotonous.png",
+    },
+  ];
   const [randomValue] = useState(Math.floor(Math.random() * 4));
+
   return (
     <div className="h-full">
       <header className="bg-[#698476]">
         <img src="/logo.png" alt="logo" className="m-auto w-28 p-2" />
       </header>
       <section className="flex flex-row justify-center mb-2">
-        <div className="text-[#698476] flex space-x-2 text-xs mt-2">
-          <img src={"/happy.png"} alt="happy" className="w-7" />
-          <span className="pt-1.5">
-            {items.filter((item) => item.emoji === "happy").length}개
-          </span>
-          <img src={"/sad.png"} alt="sad" className="w-7" />
-          <span className="pt-1.5">
-            {items.filter((item) => item.emoji === "sad").length}개
-          </span>
-          <img src={"/angry.png"} alt="angry" className="w-7" />
-          <span className="pt-1.5">
-            {items.filter((item) => item.emoji === "angry").length}개
-          </span>
-          <img src={"/tired.png"} alt="tired" className="w-7" />
-          <span className="pt-1.5">
-            {items.filter((item) => item.emoji === "tired").length}개
-          </span>
-          <img src={"/monotonous.png"} alt="monotonous" className="w-7" />
-          <span className="pt-1.5">
-            {items.filter((item) => item.emoji === "monotonous").length}개
-          </span>
-        </div>
+        {emojiData &&
+          emojiData.map((data) => {
+            return (
+              <div
+                key={data.name}
+                className="text-[#698476] flex  text-xs mt-2 mr-2"
+              >
+                <img src={data.image} alt={data.name} className="w-7 mr-1" />
+                <span className="pt-1.5">
+                  {items.filter((item) => item.emoji === data.name).length}개
+                </span>
+              </div>
+            );
+          })}
         <button
           type="button"
           className="border-[#f5f6f8] md:border-[#698476] border-2 rounded-lg md:text-[#698476] text-xs w-16 p py-1 absolute top-3 md:top-14 text-[#f5f6f8] right-0 mr-3 md:mt-1 hover:bg-[#f5f6f8] hover:text-[#698476] md:hover:bg-[#dee2d6]"
