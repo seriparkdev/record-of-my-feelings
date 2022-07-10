@@ -29,41 +29,26 @@
 ### 반응형
 |화면 크기에 따라 배치 변화|
 |------|
-|<img src='https://user-images.githubusercontent.com/104069346/178147613-c90e69f8-f16d-4f7b-a887-212ae5ba4003.gif'>|
-
-### 데스크탑
-|모달을 통해 일기 작성|
-|------|
-|<img src='https://user-images.githubusercontent.com/104069346/178148046-b672458c-e574-4dcd-868e-f7a952cdbaa8.gif'>|
-
-|이모티콘을 눌러 작성했던 일기 보기|
-|------|
-|<img src='https://user-images.githubusercontent.com/104069346/178148124-2d4e24cd-0888-41b7-9d57-d1341c17ce53.gif'>|
-
-|이모티콘 별로 개수 표시|
-|------|
-|<img src='https://user-images.githubusercontent.com/104069346/178148175-a20ff624-99df-41e1-aac2-db0d138b83d6.jpg'>|
-
-
-### 모바일
-|기본 화면|
-|------|
-|<img src='https://user-images.githubusercontent.com/104069346/178147944-9eef2bd5-7b8a-4ec5-99d7-a015ed50931f.jpg'>|
-
-|모달|
-|------|
-|<img src='https://user-images.githubusercontent.com/104069346/178147964-09c42d41-a125-475a-a06e-618947f9b451.jpg'>|
-
-|일기 추가된 모습|
-|------|
-|<img src='https://user-images.githubusercontent.com/104069346/178147992-dd9a8d27-f918-4a5d-9fd7-7994951f0142.jpg'>|
-
+|<img src='https://user-images.githubusercontent.com/104069346/178147613-c90e69f8-f16d-4f7b-a887-212ae5ba4003.gif'/>|
 
 ### 응원의 말
 |새로고침 시 응원 텍스트 변화|
 |------|
-|<img src='(https://user-images.githubusercontent.com/104069346/178147761-d52315a7-6753-46a1-86bf-7e41aabc9cb7.gif'>|d
+|<img src='https://user-images.githubusercontent.com/104069346/178147761-d52315a7-6753-46a1-86bf-7e41aabc9cb7.gif'>|
 
+### 데스크탑
+|모달을 통해 일기 작성|
+|------|
+|<img src='https://user-images.githubusercontent.com/104069346/178148046-b672458c-e574-4dcd-868e-f7a952cdbaa8.gif'/>|
+
+|이모티콘을 눌러 작성했던 일기 보기 / 이모티콘 별로 개수 표시|
+|------|
+|<img src='https://user-images.githubusercontent.com/104069346/178148124-2d4e24cd-0888-41b7-9d57-d1341c17ce53.gif'/>|
+
+### 모바일
+|기본 화면|모달|일기 추가된 모습|
+|------|---|---|
+|<img src='https://user-images.githubusercontent.com/104069346/178148470-f8417c33-095b-493b-b6de-2ab61abd663d.jpg'/>|<img src='https://user-images.githubusercontent.com/104069346/178148466-ec7bebf0-f096-43fa-9c4f-05ba91d4e7b0.jpg'>|<img src='https://user-images.githubusercontent.com/104069346/178148467-cc508cd7-e0d9-4744-9283-5f58ac36b1a5.jpg'>|
 </br>
 
 ## 트러블슈팅
@@ -123,3 +108,6 @@ Encountered two children with the same key.
   - 실행 시 콘솔에 객체가 두 번 찍히는 문제
   - `index.tsx`에서 `<React.StrictMode>`로 `<App />`을 감싸줬기 때문
   - 개발 모드 -> 렌더링 두 번
+</br>
+
+  ### Redux 공부 후 다시 구현할 예정
