@@ -93,8 +93,8 @@ export default function Home() {
                     alt={item.emoji}
                     value={item.id}
                     // eslint-disable-next-line
-                    onClick={(e: any) => {
-                      setId(e.target.value);
+                    onClick={(e: React.MouseEvent<HTMLInputElement>) => {
+                      setId((e.target as HTMLInputElement).value);
                     }}
                   ></input>
                 );
