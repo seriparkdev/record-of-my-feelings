@@ -100,7 +100,7 @@ export default function Home() {
               })
             : emptyStateHandler()}
         </div>
-        <span className="emojiBox font-light md:w-3/5 p-4 md:h-full md:overflow-y-auto bg-[#ECEAE1] px-10 text-[#A68B80]">
+        <span className="emojiBox text-xs md:text-base font-light md:w-3/5 p-4 md:h-full md:overflow-y-auto bg-[#ECEAE1] px-10 text-[#A68B80]">
           {items.length > 0
             ? items.map((item) => {
                 if (id === item.id) {
