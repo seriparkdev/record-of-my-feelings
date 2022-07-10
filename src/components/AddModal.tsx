@@ -11,7 +11,7 @@ export default function AddModal({
     diary: string;
     emoji: string;
     emojiImg: string;
-    number: number;
+    id: string;
     image: string;
   }) => void;
 }) {
@@ -19,25 +19,32 @@ export default function AddModal({
   const [selected, setSelected] = useState("happy");
   const [urlImg, setUrlImg] = useState<string>("");
   const [emojiFile, setEmojiFile] = useState<string>("/happy.png");
+
   const handlechange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSelected(e.target.value);
     setEmojiFile(`/${e.target.value}.png`);
   };
-
+  const todayId = new Date();
   function submitHandler(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const index = 0;
+    const nowId =
+      todayId.getFullYear().toString() +
+      todayId.getMonth().toString() +
+      todayId.getDate().toString() +
+      todayId.getHours().toString() +
+      todayId.getMinutes().toString() +
+      todayId.getMilliseconds().toString();
     const item: {
       diary: string;
       emoji: string;
       emojiImg: string;
-      number: number;
+      id: string;
       image: string;
     } = {
       diary: diary,
       emoji: selected,
       emojiImg: emojiFile,
-      number: index,
+      id: nowId,
       image: urlImg,
     };
     addItemHandler(item);
