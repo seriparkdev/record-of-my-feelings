@@ -15,6 +15,7 @@ export default function Home() {
   const [id, setId] = useState<string>("");
   const today = new Date();
   const pepTalk = ["화이팅!", ":)", "좋은 순간을 남겨요", "오늘 어떠셨나요?"];
+  const [randomValue] = useState(Math.floor(Math.random() * 4));
 
   function addItemHandler(item: Data) {
     setItems([...items, item]);
@@ -49,7 +50,6 @@ export default function Home() {
       image: "/monotonous.png",
     },
   ];
-  const [randomValue] = useState(Math.floor(Math.random() * 4));
 
   return (
     <div className="h-full">
@@ -62,7 +62,7 @@ export default function Home() {
             return (
               <div
                 key={data.name}
-                className="text-[#698476] flex  text-xs mt-2 mr-2"
+                className="text-[#698476] flex text-xs mt-2 mr-2"
               >
                 <img src={data.image} alt={data.name} className="w-7 mr-1" />
                 <span className="pt-1.5">
@@ -81,7 +81,7 @@ export default function Home() {
       </section>
 
       <div className="flex h-3/4 flex-col md:flex-row">
-        <div className="px-5 pl-10 pt-5 bg-[#F2F0ED] md:w-2/5 md:overflow-y-auto pb-8">
+        <div className="emojiBox px-5 pl-10 pt-5 bg-[#F2F0ED] md:w-2/5 md:overflow-y-auto pb-8">
           {items.length > 0
             ? items.map((item) => {
                 return (
@@ -92,7 +92,6 @@ export default function Home() {
                     src={item.emojiImg}
                     alt={item.emoji}
                     value={item.id}
-                    // eslint-disable-next-line
                     onClick={(e: React.MouseEvent<HTMLInputElement>) => {
                       setId((e.target as HTMLInputElement).value);
                     }}
@@ -101,7 +100,7 @@ export default function Home() {
               })
             : emptyStateHandler()}
         </div>
-        <span className="font-light md:w-3/5 p-4 md:h-full md:overflow-y-auto bg-[#ECEAE1] px-10 text-[#A68B80]">
+        <span className="emojiBox font-light md:w-3/5 p-4 md:h-full md:overflow-y-auto bg-[#ECEAE1] px-10 text-[#A68B80]">
           {items.length > 0
             ? items.map((item) => {
                 if (id === item.id) {
@@ -112,7 +111,7 @@ export default function Home() {
                         alt={item.emoji}
                         className="w-14 m-auto pt-5"
                       />
-                      <div className="pt-2 text-center">
+                      <div className="text-center py-2">
                         {today.getMonth() +
                           1 +
                           "월 " +

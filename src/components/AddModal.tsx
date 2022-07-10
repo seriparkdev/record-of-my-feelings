@@ -19,12 +19,13 @@ export default function AddModal({
   const [selected, setSelected] = useState("happy");
   const [urlImg, setUrlImg] = useState<string>("");
   const [emojiFile, setEmojiFile] = useState<string>("/happy.png");
+  const todayId = new Date();
 
   const handlechange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSelected(e.target.value);
     setEmojiFile(`/${e.target.value}.png`);
   };
-  const todayId = new Date();
+
   function submitHandler(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const nowId =
