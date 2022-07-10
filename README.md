@@ -1,4 +1,7 @@
 # record-of-my-feelings
+https://fee1in.netlify.app/
+***
+
 - [설계](#설계)
 - [기능](#기능)
 - [트러블슈팅](#트러블슈팅)
@@ -22,7 +25,8 @@
   - 이모티콘 click or hover 시 적었던 일기가 뜸
 - 기분 이모티콘 추가 버튼
   - 기분 이모티콘, 일기 입력 받는 모달 생성
-<img src="https://user-images.githubusercontent.com/104069346/175812597-f03ea43f-a51c-4bda-b8f4-ef5c66327bc6.jpg"></img>
+<img width="809" alt="레이아웃" src="https://user-images.githubusercontent.com/104069346/178153661-748bdf14-20e8-4fb4-8653-c0b072cca890.png">
+<img width="854" alt="모달" src="https://user-images.githubusercontent.com/104069346/178153664-44e7bc32-8a8e-474f-bfa2-60613cefb1df.png">
 </br>
 
 ## 기능
@@ -79,14 +83,14 @@ index를 button의 value에서 가져오려 함.
     - `Don’t call Hooks inside loops, conditions, or nested functions.`
     - `React relies on the order in which Hooks are called.`
     - hook은 조건문, 반복문, 중첩된 함수에서 호출하면 안 됨.
-    -  항상 함수의 최상위에서 hook을 호출하자.
+    -  항상 함수의 최s상위에서 hook을 호출하자.
     - 잘못된 순서의 상태값을 참조하게 되는 오류 발생.
   - 조건문을 이용하지 않고, useState를 이용하는 방법으로 해결!
   <a href="https://reactjs.org/docs/hooks-rules.html#gatsby-focus-wrapper">Rules of Hooks</a>
 </br>
 
 ### 문제
-Encountered two children with the same key.
+`Encountered two children with the same key.`
 
 ### 해결
 - JSX를 `<></>`로 감싸서 생긴 문제
@@ -95,7 +99,7 @@ Encountered two children with the same key.
 
 ## 학습내용
 - 모달에서 받은 입력값을 메인에 표시할 때 useRef를 사용하려 했음.
-  - useRef(uncontrolled component)는 DOM에 직접 접근하는 방식임으로 지양. useState, react-hook-form 사용이 좋음.
+  - `useRef(uncontrolled component)`는 DOM에 직접 접근하는 방식임으로 지양. `useState, react-hook-form` 사용이 좋음.
   - controlled component는 React controlled에 의해 처리. 
 - tailwind
   - A utility-first CSS framework
@@ -110,4 +114,4 @@ Encountered two children with the same key.
   - 개발 모드 -> 렌더링 두 번
 </br>
 
-  ### Redux 공부 후 다시 구현할 예정
+  ## Redux 공부 후 적용시킬 예정
