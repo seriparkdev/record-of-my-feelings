@@ -1,5 +1,6 @@
 # record-of-my-feelings
 - [설계](#설계)
+- [기능](#기능)
 - [트러블슈팅](#트러블슈팅)
 - [학습내용](#학습내용)
 ## 설계
@@ -22,6 +23,48 @@
 - 기분 이모티콘 추가 버튼
   - 기분 이모티콘, 일기 입력 받는 모달 생성
 <img src="https://user-images.githubusercontent.com/104069346/175812597-f03ea43f-a51c-4bda-b8f4-ef5c66327bc6.jpg"></img>
+</br>
+
+## 기능
+### 반응형
+|화면 크기에 따라 배치 변화|
+|------|
+|<img src='https://user-images.githubusercontent.com/104069346/178147613-c90e69f8-f16d-4f7b-a887-212ae5ba4003.gif'>|
+
+### 데스크탑
+|모달을 통해 일기 작성|
+|------|
+|<img src='https://user-images.githubusercontent.com/104069346/178148046-b672458c-e574-4dcd-868e-f7a952cdbaa8.gif'>|
+
+|이모티콘을 눌러 작성했던 일기 보기|
+|------|
+|<img src='https://user-images.githubusercontent.com/104069346/178148124-2d4e24cd-0888-41b7-9d57-d1341c17ce53.gif'>|
+
+|이모티콘 별로 개수 표시|
+|------|
+|<img src='https://user-images.githubusercontent.com/104069346/178148175-a20ff624-99df-41e1-aac2-db0d138b83d6.jpg'>|
+
+
+### 모바일
+|기본 화면|
+|------|
+|<img src='https://user-images.githubusercontent.com/104069346/178147944-9eef2bd5-7b8a-4ec5-99d7-a015ed50931f.jpg'>|
+
+|모달|
+|------|
+|<img src='https://user-images.githubusercontent.com/104069346/178147964-09c42d41-a125-475a-a06e-618947f9b451.jpg'>|
+
+|일기 추가된 모습|
+|------|
+|<img src='https://user-images.githubusercontent.com/104069346/178147992-dd9a8d27-f918-4a5d-9fd7-7994951f0142.jpg'>|
+
+
+### 응원의 말
+|새로고침 시 응원 텍스트 변화|
+|------|
+|<img src='(https://user-images.githubusercontent.com/104069346/178147761-d52315a7-6753-46a1-86bf-7e41aabc9cb7.gif'>|d
+
+</br>
 
 ## 트러블슈팅
 ### 문제
