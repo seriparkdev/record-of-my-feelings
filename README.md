@@ -29,9 +29,12 @@ index를 button의 value에서 가져오려 함.
 **button element에는 `event.target.value`의 `value` 속성이 없음.**
 
 ### 해결
- - 애초에 증감 연산자나 +1을 이용해 value 값을 계속 변경시켜 index를 만드는 것은 좋지 않음 (불안정).
- - 고유의 값(name...)을 넣어주는 게 좋음.
- - **index (X)**
+ - 애초에 증감 연산자나 +1을 이용해 value 값을 계속 변경시켜 index를 만드는 것은 불안정.
+ - 고유의 값(name, id...)을 넣어주는 게 좋음.
+ - 인덱스 X -> id 추가.
+ - button X -> input.
+ - input에도 value 없음. 
+ - `e.target as HTMLInputElement`로 해결.
 </br>
 
 ### 문제
@@ -60,3 +63,7 @@ index를 button의 value에서 가져오려 함.
 - tailwind
   - A utility-first CSS framework
   - HTML 태그에 CSS를 직접 적는 방식이라 편리
+- useState는 const로 만들어졌음. 반드시 setter를 이용해 값을 변경.
+- 타입명 object, function (X)
+  - object: `{name: string, age: number,}`
+  - function : `() => void`
