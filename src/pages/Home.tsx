@@ -10,34 +10,10 @@ interface Data {
 }
 
 export default function Home() {
-  const emojiData = [
-    {
-      name: "happy",
-      image: "/happy.png",
-    },
-    {
-      name: "sad",
-      image: "/sad.png",
-    },
-    {
-      name: "angry",
-      image: "/angry.png",
-    },
-    {
-      name: "tired",
-      image: "/tired.png",
-    },
-    {
-      name: "monotonous",
-      image: "/monotonous.png",
-    },
-  ];
-
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
   const [items, setItems] = useState<Data[]>([]);
-  const [index, setIndex] = useState<number>(1);
-
-  let emojiIndex = 0;
+  const [id, setId] = useState<number>(1);
+  const today = new Date();
   const pepTalk = ["화이팅!", ":)", "좋은 순간을 남겨요", "오늘 어떠셨나요?"];
 
   function addItemHandler(item: Data) {
@@ -58,43 +34,23 @@ export default function Home() {
       </header>
       <section className="flex flex-row justify-center mb-2">
         <div className="text-[#698476] flex space-x-2 text-xs mt-2">
-          <img
-            src={emojiData[0].image}
-            alt={emojiData[0].name}
-            className="w-7"
-          />
+          <img src={"/happy.png"} alt="happy" className="w-7" />
           <span className="pt-1.5">
             {items.filter((item) => item.emoji === "happy").length}개
           </span>
-          <img
-            src={emojiData[1].image}
-            alt={emojiData[1].name}
-            className="w-7"
-          />
+          <img src={"/sad.png"} alt="sad" className="w-7" />
           <span className="pt-1.5">
             {items.filter((item) => item.emoji === "sad").length}개
           </span>
-          <img
-            src={emojiData[2].image}
-            alt={emojiData[2].name}
-            className="w-7"
-          />
+          <img src={"/angry.png"} alt="angry" className="w-7" />
           <span className="pt-1.5">
             {items.filter((item) => item.emoji === "angry").length}개
           </span>
-          <img
-            src={emojiData[3].image}
-            alt={emojiData[3].name}
-            className="w-7"
-          />
+          <img src={"/tired.png"} alt="tired" className="w-7" />
           <span className="pt-1.5">
             {items.filter((item) => item.emoji === "tired").length}개
           </span>
-          <img
-            src={emojiData[4].image}
-            alt={emojiData[4].name}
-            className="w-7"
-          />
+          <img src={"/monotonous.png"} alt="monotonous" className="w-7" />
           <span className="pt-1.5">
             {items.filter((item) => item.emoji === "monotonous").length}개
           </span>
