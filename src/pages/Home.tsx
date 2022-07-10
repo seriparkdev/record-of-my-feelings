@@ -4,7 +4,7 @@ import AddModal from "../components/AddModal";
 interface Data {
   diary: string;
   emoji: string;
-  number: number;
+  id: string;
   emojiImg: string;
   image: string;
 }
@@ -45,7 +45,7 @@ export default function Home() {
   }
   function emptyStateHandler() {
     return (
-      <div className="w-full h-[200px] text-[#C9B79C] text-xs text-center pt-24">
+      <div className="font-semibold w-full h-[200px] text-[#C9B79C] text-xs text-center pt-24">
         일기를 작성해봐요
       </div>
     );
@@ -101,7 +101,7 @@ export default function Home() {
         </div>
         <button
           type="button"
-          className="border-[#f5f6f8] md:border-[#698476] border-2 rounded-lg md:text-[#698476] text-xs w-16 p py-1 absolute top-3 md:top-14 text-[#f5f6f8] right-0 mr-3 md:mt-1 hover:bg-white hover:text-[#698476] md:hover:bg-[#dee2d6]"
+          className="border-[#f5f6f8] md:border-[#698476] border-2 rounded-lg md:text-[#698476] text-xs w-16 p py-1 absolute top-3 md:top-14 text-[#f5f6f8] right-0 mr-3 md:mt-1 hover:bg-[#f5f6f8] hover:text-[#698476] md:hover:bg-[#dee2d6]"
           onClick={() => setIsOpenModal(!isOpenModal)}
         >
           일기 쓰기
@@ -109,61 +109,48 @@ export default function Home() {
       </section>
 
       <div className="flex h-3/4 flex-col md:flex-row">
-        <div className="flex flex-wrap p-6 px-9  bg-[#F2F0ED] text-center md:w-2/5 md:h-full">
+        <div className="px-5 pl-10 pt-5 bg-[#F2F0ED] md:w-2/5 md:overflow-y-auto pb-8">
           {items.length > 0
             ? items.map((item) => {
-                item.number = ++emojiIndex;
                 return (
-                  <div
-                    key={item.number}
-                    className="flex flex-col h-20 md:mx-3 mx-5"
-                  >
-                    <span>
-                      <button
-                        className="cursor-pointer border-[#A68B80] border-2 w-8 h-5 text-xs text-[#A68B80] rounded-lg"
-                        value={emojiIndex}
-                        // eslint-disable-next-line
+                  <input
+                    key={item.id}
+                    className="md:mx-3 mx-5 cursor-pointer mt-3 w-14 h-14"
+                    type="image"
+                    src={item.emojiImg}
+                    alt={item.emoji}
+                    value={item.id}
+                    // eslint-disable-next-line
                     onClick={(e: any) => {
-                          setIndex(e.target.value);
-                        }}
-                      >
-                        {emojiIndex}
-                      </button>
-                      <img
-                        src={item.emojiImg}
-                        alt={item.emoji}
-                        className="w-14 h-14"
-                      />
-                    </span>
-                  </div>
+                      setId(e.target.value);
+                    }}
+                  ></input>
                 );
               })
             : emptyStateHandler()}
         </div>
-        <span className="md:w-3/5 p-4 md:h-full md:overflow-y-auto bg-[#ECEAE1] px-10 text-[#A68B80]">
+        <span className="font-light md:w-3/5 p-4 md:h-full md:overflow-y-auto bg-[#ECEAE1] px-10 text-[#A68B80]">
           {items.length > 0
             ? items.map((item) => {
-                if (index == item.number) {
+                if (id.toString() == item.id) {
                   return (
-                    <div key={item.number}>
+                    <div key={item.id}>
                       <img
                         src={item.emojiImg}
                         alt={item.emoji}
                         className="w-14 m-auto pt-5"
                       />
-                      <div className="pt-2 text-center pb-5">
-                        {item.number}번째 기록
+                      <div className="pt-2 text-center">
+                        {today.getMonth() +
+                          1 +
+                          "월 " +
+                          today.getDate() +
+                          "일의 기록"}
                       </div>
+
                       <img src={item.image} className="m-auto" />
-                      <div className="break-all pt-5 pb-10">
-                        {item.diary.split("\n").map((line) => {
-                          return (
-                            <div key={item.number}>
-                              {line}
-                              <br />
-                            </div>
-                          );
-                        })}
+                      <div className="break-all pt-5 pb-10 whitespace-pre-line">
+                        {item.diary}
                       </div>
                     </div>
                   );
