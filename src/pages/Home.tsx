@@ -12,7 +12,7 @@ interface Data {
 export default function Home() {
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
   const [items, setItems] = useState<Data[]>([]);
-  const [id, setId] = useState<number>(1);
+  const [id, setId] = useState<string>("");
   const today = new Date();
   const pepTalk = ["화이팅!", ":)", "좋은 순간을 남겨요", "오늘 어떠셨나요?"];
 
@@ -88,7 +88,7 @@ export default function Home() {
         <span className="font-light md:w-3/5 p-4 md:h-full md:overflow-y-auto bg-[#ECEAE1] px-10 text-[#A68B80]">
           {items.length > 0
             ? items.map((item) => {
-                if (id.toString() == item.id) {
+                if (id === item.id) {
                   return (
                     <div key={item.id}>
                       <img
@@ -110,6 +110,8 @@ export default function Home() {
                       </div>
                     </div>
                   );
+                } else if (id === "") {
+                  setId(item.id);
                 }
               })
             : emptyStateHandler()}
