@@ -51,9 +51,8 @@ export default function Home() {
     );
   }
   const [randomValue] = useState(Math.floor(Math.random() * 4));
-
   return (
-    <>
+    <div className="h-full">
       <header className="bg-[#698476]">
         <img src="/logo.png" alt="logo" className="m-auto w-28 p-2" />
       </header>
@@ -116,7 +115,7 @@ export default function Home() {
                 item.number = ++emojiIndex;
                 return (
                   <div
-                    key={item.diary}
+                    key={item.number}
                     className="flex flex-col h-20 md:mx-3 mx-5"
                   >
                     <span>
@@ -146,17 +145,26 @@ export default function Home() {
             ? items.map((item) => {
                 if (index == item.number) {
                   return (
-                    <div key={item.emoji}>
+                    <div key={item.number}>
                       <img
                         src={item.emojiImg}
                         alt={item.emoji}
                         className="w-14 m-auto pt-5"
                       />
-                      <div className="pt-2 text-center">
+                      <div className="pt-2 text-center pb-5">
                         {item.number}번째 기록
                       </div>
-                      <img src={item.image} />
-                      <div className="break-all pt-5 pb-10">{item.diary}</div>
+                      <img src={item.image} className="m-auto" />
+                      <div className="break-all pt-5 pb-10">
+                        {item.diary.split("\n").map((line) => {
+                          return (
+                            <div key={item.number}>
+                              {line}
+                              <br />
+                            </div>
+                          );
+                        })}
+                      </div>
                     </div>
                   );
                 }
@@ -164,7 +172,7 @@ export default function Home() {
             : emptyStateHandler()}
         </span>
       </div>
-      <div className="absolute top-0 text-white md:text-[#698476] text-[12px] md:text-xs md:inset-y-auto pl-4 mt-5 md:mt-4">
+      <div className="absolute top-0 text-white md:text-[#698476] text-[12px] md:text-xs md:inset-y-auto pl-4 mt-4 md:mt-4">
         <span>{pepTalk[randomValue]}</span>
       </div>
       {isOpenModal && (
@@ -174,6 +182,6 @@ export default function Home() {
           addItemHandler={addItemHandler}
         />
       )}
-    </>
+    </div>
   );
 }

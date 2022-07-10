@@ -45,7 +45,7 @@ export default function AddModal({
   }
 
   return (
-    <>
+    <div>
       <form onSubmit={submitHandler}>
         <div
           className="fixed bg-black opacity-60 top-0 left-0 w-full h-full"
@@ -187,6 +187,6 @@ export default function AddModal({
           </div>
         </div>
       </form>
-    </>
+    </div>
   );
 }
