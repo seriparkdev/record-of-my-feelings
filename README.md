@@ -55,6 +55,15 @@ index를 button의 value에서 가져오려 함.
     - 잘못된 순서의 상태값을 참조하게 되는 오류 발생.
   - 조건문을 이용하지 않고, useState를 이용하는 방법으로 해결!
   <a href="https://reactjs.org/docs/hooks-rules.html#gatsby-focus-wrapper">Rules of Hooks</a>
+</br>
+
+### 문제
+Encountered two children with the same key.
+
+### 해결
+- JSX를 `<></>`로 감싸서 생긴 문제
+- `<div></div>`로 해결
+</br>
 
 ## 학습내용
 - 모달에서 받은 입력값을 메인에 표시할 때 useRef를 사용하려 했음.
@@ -67,3 +76,7 @@ index를 button의 value에서 가져오려 함.
 - 타입명 object, function (X)
   - object: `{name: string, age: number,}`
   - function : `() => void`
+- useEffect - Mount
+  - 실행 시 콘솔에 객체가 두 번 찍히는 문제
+  - `index.tsx`에서 `<React.StrictMode>`로 `<App />`을 감싸줬기 때문
+  - 개발 모드 -> 렌더링 두 번
