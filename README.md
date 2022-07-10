@@ -25,8 +25,9 @@ https://fee1in.netlify.app/
   - 이모티콘 click or hover 시 적었던 일기가 뜸
 - 기분 이모티콘 추가 버튼
   - 기분 이모티콘, 일기 입력 받는 모달 생성
-<img width="809" alt="레이아웃" src="https://user-images.githubusercontent.com/104069346/178153661-748bdf14-20e8-4fb4-8653-c0b072cca890.png">
-<img width="854" alt="모달" src="https://user-images.githubusercontent.com/104069346/178153664-44e7bc32-8a8e-474f-bfa2-60613cefb1df.png">
+
+<img width="500" alt="레이아웃" src="https://user-images.githubusercontent.com/104069346/178153664-44e7bc32-8a8e-474f-bfa2-60613cefb1df.png">
+<img width="500" alt="모달" src="https://user-images.githubusercontent.com/104069346/178153661-748bdf14-20e8-4fb4-8653-c0b072cca890.png">
 </br>
 
 ## 기능
