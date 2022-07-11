@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction, useState } from "react"; // eslint-disable-line no-unused-vars
+import React, { Dispatch, SetStateAction, useState } from "react";
 
 export default function AddModal({
   isOpenModal,
