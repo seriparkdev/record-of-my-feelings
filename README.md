@@ -176,7 +176,7 @@ index를 button의 value에서 가져오려 함.
 - tailwind
   - A utility-first CSS framework
   - HTML 태그에 CSS를 직접 적는 방식이라 편리
-- useState는 const로 만들어졌음. 반드시 setter를 이용해 값을 변경.
+- useState는 const로 만들어졌음. 반드시 setstate를 이용해 값을 변경.
 - 타입명 object, function (X)
   - object: `{name: string, age: number,}`
   - function : `() => void`
