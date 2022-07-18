@@ -16,18 +16,6 @@ export default function Home() {
   const today = new Date();
   const pepTalk = ["화이팅!", ":)", "좋은 순간을 남겨요", "오늘 어떠셨나요?"];
   const [randomValue] = useState(Math.floor(Math.random() * 4));
-
-  function addItemHandler(item: Data) {
-    setItems([...items, item]);
-  }
-  function emptyStateHandler() {
-    return (
-      <div className="font-semibold w-full h-[200px] text-[#C9B79C] text-xs text-center pt-24">
-        일기를 작성해봐요
-      </div>
-    );
-  }
-
   const emojiData = [
     {
       name: "happy",
@@ -50,6 +38,21 @@ export default function Home() {
       image: "/monotonous.png",
     },
   ];
+
+  function addItemHandler(item: Data) {
+    setItems([...items, item]);
+  }
+  function emptyStateHandler() {
+    return (
+      <div className="font-semibold w-full h-[200px] text-[#C9B79C] text-xs text-center pt-24">
+        일기를 작성해봐요
+      </div>
+    );
+  }
+
+  function onRemove(id: string) {
+    setItems(items.filter((item) => item.id !== id));
+  }
 
   return (
     <div className="h-full">
@@ -106,6 +109,7 @@ export default function Home() {
                 if (id === item.id) {
                   return (
                     <div key={item.id}>
+                      <button onClick={() => onRemove(item.id)}>삭제</button>
                       <img
                         src={item.emojiImg}
                         alt={item.emoji}
