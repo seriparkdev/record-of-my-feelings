@@ -4,6 +4,8 @@ export default function AddModal({
   isOpenModal,
   setIsOpenModal,
   addItemHandler,
+  setDiary,
+  diary,
 }: {
   isOpenModal: boolean;
   setIsOpenModal: Dispatch<SetStateAction<boolean>>;
@@ -14,8 +16,9 @@ export default function AddModal({
     id: string;
     image: string;
   }) => void;
+  setDiary: Dispatch<React.SetStateAction<string>>;
+  diary: string;
 }) {
-  const [diary, setDiary] = useState<string>("");
   const [selected, setSelected] = useState("happy");
   const [urlImg, setUrlImg] = useState<string>("");
   const [emojiFile, setEmojiFile] = useState<string>("/happy.png");
