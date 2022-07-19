@@ -12,7 +12,10 @@ interface Data {
 export default function Home() {
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
   const [items, setItems] = useState<Data[]>([]);
+  const [diary, setDiary] = useState<string>("");
+  const [localDiary, setLocalDiary] = useState<string>(diary);
   const [id, setId] = useState<string>("");
+  const [isEdit, setIsEdit] = useState<boolean>(false);
   const today = new Date();
   const pepTalk = ["화이팅!", ":)", "좋은 순간을 남겨요", "오늘 어떠셨나요?"];
   const [randomValue] = useState(Math.floor(Math.random() * 4));
@@ -52,6 +55,24 @@ export default function Home() {
 
   function onRemove(id: string) {
     setItems(items.filter((item) => item.id !== id));
+  }
+
+  function onEdit(editId: string, newDiary: string) {
+    setItems(
+      items.map((item) =>
+        item.id === editId ? { ...item, diary: newDiary } : item
+      )
+    );
+  }
+
+  function quitEditHandler() {
+    setIsEdit(!isEdit);
+    setLocalDiary(diary);
+  }
+
+  function handleEdit() {
+    setIsEdit(!isEdit);
+    onEdit(id, localDiary);
   }
 
   return (
@@ -97,19 +118,50 @@ export default function Home() {
                     value={item.id}
                     onClick={(e: React.MouseEvent<HTMLInputElement>) => {
                       setId((e.target as HTMLInputElement).value);
+                      setIsEdit(false);
                     }}
                   ></input>
                 );
               })
             : emptyStateHandler()}
         </div>
-        <span className="emojiBox text-xs md:text-base font-light md:w-3/5 p-4 md:h-full md:overflow-y-auto bg-[#ECEAE1] px-10 text-[#A68B80]">
+        <span className="emojiBox font-light md:w-3/5 p-4 md:h-full md:overflow-y-auto bg-[#ECEAE1] px-10 text-[#A68B80]">
           {items.length > 0
             ? items.map((item) => {
                 if (id === item.id) {
                   return (
                     <div key={item.id}>
-                      <button onClick={() => onRemove(item.id)}>삭제</button>
+                      {isEdit ? (
+                        <div className="text-right">
+                          <button
+                            className="rounded-lg bg-[#e1d7cd] mr-3 text-sm w-20 p-1  hover:bg-[#f5f6f8]"
+                            onClick={quitEditHandler}
+                          >
+                            취소
+                          </button>
+                          <button
+                            className="rounded-lg bg-[#e1d7cd] text-sm mr-3 w-20 p-1  hover:bg-[#f5f6f8]"
+                            onClick={handleEdit}
+                          >
+                            완료
+                          </button>
+                        </div>
+                      ) : (
+                        <div className="text-right ">
+                          <button
+                            className="rounded-lg bg-[#e1d7cd] mr-3 w-20 p-1  hover:bg-[#f5f6f8] text-sm"
+                            onClick={() => setIsEdit(!isEdit)}
+                          >
+                            수정
+                          </button>
+                          <button
+                            className="rounded-lg bg-[#e1d7cd] p-1 w-20 hover:bg-[#f5f6f8] text-sm"
+                            onClick={() => onRemove(item.id)}
+                          >
+                            삭제
+                          </button>
+                        </div>
+                      )}
                       <img
                         src={item.emojiImg}
                         alt={item.emoji}
@@ -124,8 +176,16 @@ export default function Home() {
                       </div>
 
                       <img src={item.image} className="m-auto" />
-                      <div className="break-all pt-5 pb-10 whitespace-pre-line">
-                        {item.diary}
+                      <div className="break-all pt-5 pb-10 whitespace-pre-line h-screen">
+                        {isEdit ? (
+                          <textarea
+                            defaultValue={item.diary}
+                            className="h-full w-full p-10 rounded-lg"
+                            onChange={(e) => setLocalDiary(e.target.value)}
+                          ></textarea>
+                        ) : (
+                          item.diary
+                        )}
                       </div>
                     </div>
                   );
@@ -144,6 +204,8 @@ export default function Home() {
           isOpenModal={isOpenModal}
           setIsOpenModal={setIsOpenModal}
           addItemHandler={addItemHandler}
+          setDiary={setDiary}
+          diary={diary}
         />
       )}
     </div>
