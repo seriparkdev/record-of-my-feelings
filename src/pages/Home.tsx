@@ -19,6 +19,7 @@ export default function Home() {
   const today = new Date();
   const pepTalk = ["화이팅!", ":)", "좋은 순간을 남겨요", "오늘 어떠셨나요?"];
   const [randomValue] = useState(Math.floor(Math.random() * 4));
+
   const emojiData = [
     {
       name: "happy",
@@ -125,37 +126,37 @@ export default function Home() {
               })
             : emptyStateHandler()}
         </div>
-        <span className="emojiBox font-light md:w-3/5 p-4 md:h-full md:overflow-y-auto bg-[#ECEAE1] px-10 text-[#A68B80]">
+        <span className="emojiBox font-light md:w-3/5 p-4 h-screen md:h-full md:overflow-y-auto bg-[#ECEAE1] px-10 text-[#A68B80]">
           {items.length > 0
             ? items.map((item) => {
                 if (id === item.id) {
                   return (
                     <div key={item.id}>
                       {isEdit ? (
-                        <div className="text-right">
+                        <div className="text-right pb-5">
                           <button
-                            className="rounded-lg bg-[#e1d7cd] mr-3 text-sm w-20 p-1  hover:bg-[#f5f6f8]"
+                            className="rounded-lg bg-[#e1d7cd] mr-3 text-xs w-14 p-1  hover:bg-[#f5f6f8]"
                             onClick={quitEditHandler}
                           >
                             취소
                           </button>
                           <button
-                            className="rounded-lg bg-[#e1d7cd] text-sm mr-3 w-20 p-1  hover:bg-[#f5f6f8]"
+                            className="rounded-lg bg-[#e1d7cd] text-xs w-14 p-1  hover:bg-[#f5f6f8]"
                             onClick={handleEdit}
                           >
                             완료
                           </button>
                         </div>
                       ) : (
-                        <div className="text-right ">
+                        <div className="text-right pb-5">
                           <button
-                            className="rounded-lg bg-[#e1d7cd] mr-3 w-20 p-1  hover:bg-[#f5f6f8] text-sm"
+                            className="rounded-lg bg-[#e1d7cd] mr-3 w-14 p-1  hover:bg-[#f5f6f8] text-xs"
                             onClick={() => setIsEdit(!isEdit)}
                           >
                             수정
                           </button>
                           <button
-                            className="rounded-lg bg-[#e1d7cd] p-1 w-20 hover:bg-[#f5f6f8] text-sm"
+                            className="rounded-lg bg-[#e1d7cd] p-1 w-14 hover:bg-[#f5f6f8] text-xs"
                             onClick={() => onRemove(item.id)}
                           >
                             삭제
@@ -165,9 +166,9 @@ export default function Home() {
                       <img
                         src={item.emojiImg}
                         alt={item.emoji}
-                        className="w-14 m-auto pt-5"
+                        className="w-14 m-auto pt-3"
                       />
-                      <div className="text-center py-2">
+                      <div className="text-center py-2 pb-6">
                         {today.getMonth() +
                           1 +
                           "월 " +
@@ -175,12 +176,12 @@ export default function Home() {
                           "일의 기록"}
                       </div>
 
-                      <img src={item.image} className="m-auto" />
-                      <div className="break-all pt-5 pb-10 whitespace-pre-line h-screen">
+                      <img src={item.image} className="m-auto pb-6" />
+                      <div className="break-all pb-10 whitespace-pre-line h-screen">
                         {isEdit ? (
                           <textarea
                             defaultValue={item.diary}
-                            className="h-full w-full p-10 rounded-lg"
+                            className="h-full w-full p-10 rounded-lg outline-[#A68B80]"
                             onChange={(e) => setLocalDiary(e.target.value)}
                           ></textarea>
                         ) : (
