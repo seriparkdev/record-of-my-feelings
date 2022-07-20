@@ -7,7 +7,7 @@ https://fee1in.netlify.app/
 - [기능](#기능)
 - [구현](#구현)
 - [트러블슈팅](#트러블슈팅)
-- [학습내용](#학습내용)
+- [학습 내용](#학습내용)
 </br>
 
 ***
@@ -22,17 +22,26 @@ https://fee1in.netlify.app/
 - react
 - tailwind
 ### 레이아웃
+<img width="500" alt="레이아웃" src="https://user-images.githubusercontent.com/104069346/178153664-44e7bc32-8a8e-474f-bfa2-60613cefb1df.png">
+<img width="500" alt="모달" src="https://user-images.githubusercontent.com/104069346/178153661-748bdf14-20e8-4fb4-8653-c0b072cca890.png">
+
 - 로고 이미지
 - 응원 텍스트
   - API 사용. 혹은 랜덤으로 직접 만든 텍스트 띄움.
-- 입력 받은 이모티콘의 개수를 기분별로 표시
+- 입력받은 이모티콘의 개수를 기분별로 표시
 - 기분 기록장
   - 모달에서 사용자가 선택한 이모티콘 삽입
   - 이모티콘 click or hover 시 적었던 일기가 뜸
 - 기분 이모티콘 추가 버튼
-  - 기분 이모티콘, 일기 입력 받는 모달 생성
-<img width="500" alt="레이아웃" src="https://user-images.githubusercontent.com/104069346/178153664-44e7bc32-8a8e-474f-bfa2-60613cefb1df.png">
-<img width="500" alt="모달" src="https://user-images.githubusercontent.com/104069346/178153661-748bdf14-20e8-4fb4-8653-c0b072cca890.png">
+  - 기분 이모티콘, 일기 입력받는 모달 생성
+(+ 22.07.18)
+- 일기 삭제 버튼
+- 일기 수정 버튼
+  - 수정 취소 버튼
+  - 수정 완료 버튼
+  
+
+
 
 </br>
 
@@ -50,16 +59,25 @@ https://fee1in.netlify.app/
 ### 데스크탑
 |모달을 통해 일기 작성|
 |------|
-|<img src='https://user-images.githubusercontent.com/104069346/178154732-3d3e8c3d-9743-4638-9a65-047eccad82a7.gif'/>|
+|<img src='https://user-images.githubusercontent.com/104069346/179919570-d048252a-51b3-4b5e-aca2-5ebe8d1efc57.gif'/>|
 
-|이모티콘을 눌러 작성했던 일기 보기 / 이모티콘 별로 개수 표시|
+|이모티콘을 눌러 작성했던 일기 보기 / 기분 별로 개수 표시|
 |------|
-|<img src='https://user-images.githubusercontent.com/104069346/178148124-2d4e24cd-0888-41b7-9d57-d1341c17ce53.gif'/>|
+|<img src='https://user-images.githubusercontent.com/104069346/179923826-ad11db73-eef6-41e0-a377-24b69e6fb276.gif'/>|
+
+|작성했던 일기 삭제|
+|------|
+|<img src='https://user-images.githubusercontent.com/104069346/179919579-64204818-a959-4ad8-813b-be035eabf7c3.gif'/>|
+
+|작성했던 일기 수정|
+|------|
+|<img src='https://user-images.githubusercontent.com/104069346/179925212-ecba7b3c-4469-4a62-b7d7-ddeb9a11240c.gif'/>|
 
 ### 모바일
 |기본 화면|모달|일기 추가된 모습|
 |------|---|---|
 |<img src='https://user-images.githubusercontent.com/104069346/178148470-f8417c33-095b-493b-b6de-2ab61abd663d.jpg'/>|<img src='https://user-images.githubusercontent.com/104069346/178148466-ec7bebf0-f096-43fa-9c4f-05ba91d4e7b0.jpg'>|<img src='https://user-images.githubusercontent.com/104069346/178148467-cc508cd7-e0d9-4744-9283-5f58ac36b1a5.jpg'>|
+
 </br>
 
 ## 구현
@@ -116,6 +134,51 @@ setEmojiFile(`/${e.target.value}.png`);
 - 이모티콘 출력 시 `value = 객체의 id(now)`
 - 이모티콘 클릭 시 `id(clicked) = value`
 - `입력 받은 정보가 담겼던 객체의 id`와 `value를 받은 id`가 같으면 id에 해당하는 일기를 map 함수로 렌더링
+
+### 일기 삭제
+```
+setItems(items.filter((item) => item.id !== id));
+```
+- filter 이용
+- 현재 일기(id)가 아닌 일기만 필터링해 배열 생성
+- set함수를 통해 만들어진 배열로 업데이트
+
+### 일기 수정
+1) 수정 버튼
+```
+setIsEdit(!isEdit)
+```
+- edit mode로 변경
+
+```
+edit mode ? 텍스트 박스 : 저장된 일기 
+```
+- 삼항 연산자 이용
+- 수정 모드가 되면 `<textarea>`를 띄워 일기를 수정
+- 수정 모드가 아니라면 저장된 일기만 보여줌
+
+2) 수정 모드
+```
+const [수정 다이어리, 다이어리 수정 함수] = useState
+```
+- `다이어리 수정 함수`로 사용자가 수정한 일기를 입력 받아 `수정 다이어리`에 저장
+
+3) 수정 취소 버튼
+- `setIsEdit(!isEdit)`로 edit mode 끔 
+- `수정 다이어리`에 저장 되었던 값을 지워야 함
+- `다이어리 수정 함수`에 기존의 다이어리가 저장되어있는 `diary`를 전달
+
+4) 수정 완료 버튼
+```
+function onEdit (id, newDiary) {
+  setItems(map(item.id === 현재 일기의 id ? {...item, diary: newDiary} : item))
+  }
+```
+- 삼항 연산자 이용
+- 기존의 item의 item.diary에 수정된 일기를 저장하는 함수 
+- 매개변수로 현재 시점의 id, `수정 다이어리`를 전달
+- 수정된 item을 `setItems`로 전달
+
 </br>
 
 ## 트러블슈팅
@@ -172,7 +235,7 @@ index를 button의 value에서 가져오려 함.
 
 </br>
 
-## 학습내용
+## 학습 내용
 - 모달에서 받은 입력값을 메인에 표시할 때 useRef를 사용하려 했음.
   - `useRef(uncontrolled component)`는 DOM에 직접 접근하는 방식임으로 지양. `useState, react-hook-form` 사용이 좋음.
   - controlled component는 React controlled에 의해 처리. 
