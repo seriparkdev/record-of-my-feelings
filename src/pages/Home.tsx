@@ -48,7 +48,7 @@ export default function Home() {
   }
   function emptyStateHandler() {
     return (
-      <div className="font-semibold w-full h-[200px] text-[#C9B79C] text-xs text-center pt-24">
+      <div className="w-full h-[200px] text-[#C9B79C] text-sm text-center pt-20">
         일기를 작성해봐요
       </div>
     );
@@ -106,7 +106,7 @@ export default function Home() {
       </section>
 
       <div className="flex h-3/4 flex-col md:flex-row">
-        <div className="emojiBox px-5 pl-10 pt-5 bg-[#F2F0ED] md:w-2/5 md:overflow-y-auto pb-8">
+        <div className="font-light emojiBox px-5 pl-10 pt-5 bg-[#F2F0ED] md:w-2/5 md:overflow-y-auto pb-8">
           {items.length > 0
             ? items.map((item) => {
                 return (
@@ -126,12 +126,21 @@ export default function Home() {
               })
             : emptyStateHandler()}
         </div>
-        <span className="emojiBox font-light md:w-3/5 p-4 h-screen md:h-full md:overflow-y-auto bg-[#ECEAE1] px-10 text-[#A68B80]">
+        <span className="emojiBox font-light md:w-3/5 p-4 md:h-full md:overflow-y-auto bg-[#ECEAE1] px-10 text-[#A68B80]">
+          <div className="hidden only:block only:h-full pb-36 text-center pt-30 text-[#C9B79C]">
+            <img
+              src="/alert_bear.png"
+              alt="alert_bear"
+              className="pt-20 w-20 m-auto pb-1"
+            />
+            <span>이모티콘을 클릭해주세요</span>
+          </div>
+
           {items.length > 0
             ? items.map((item) => {
                 if (id === item.id) {
                   return (
-                    <div key={item.id}>
+                    <div className="h-auto" key={item.id}>
                       {isEdit ? (
                         <div className="text-right pb-5">
                           <button
@@ -177,11 +186,11 @@ export default function Home() {
                       </div>
 
                       <img src={item.image} className="m-auto pb-6" />
-                      <div className="break-all pb-10 whitespace-pre-line h-screen">
+                      <div className="h-auto break-all pb-10 whitespace-pre-line">
                         {isEdit ? (
                           <textarea
                             defaultValue={item.diary}
-                            className="h-full w-full p-10 rounded-lg outline-[#A68B80]"
+                            className="h-screen w-full p-10 rounded-lg outline-[#A68B80]"
                             onChange={(e) => setLocalDiary(e.target.value)}
                           ></textarea>
                         ) : (
