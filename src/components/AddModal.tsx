@@ -13,7 +13,7 @@ export default function AddModal({
     diary: string;
     emoji: string;
     emojiImg: string;
-    id: string;
+    id: number;
     image: string;
   }) => void;
   setDiary: Dispatch<React.SetStateAction<string>>;
@@ -31,24 +31,18 @@ export default function AddModal({
 
   function submitHandler(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const nowId =
-      todayId.getFullYear().toString() +
-      todayId.getMonth().toString() +
-      todayId.getDate().toString() +
-      todayId.getHours().toString() +
-      todayId.getMinutes().toString() +
-      todayId.getMilliseconds().toString();
+
     const item: {
       diary: string;
       emoji: string;
       emojiImg: string;
-      id: string;
+      id: number;
       image: string;
     } = {
       diary: diary,
       emoji: selected,
       emojiImg: emojiFile,
-      id: nowId,
+      id: todayId.getTime(),
       image: urlImg,
     };
     addItemHandler(item);
