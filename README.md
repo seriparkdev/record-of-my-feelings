@@ -34,6 +34,7 @@ https://fee1in.netlify.app/
   - 이모티콘 click or hover 시 적었던 일기가 뜸
 - 기분 이모티콘 추가 버튼
   - 기분 이모티콘, 일기 입력받는 모달 생성
+
 (+ 22.07.18)
 - 일기 삭제 버튼
 - 일기 수정 버튼
@@ -76,7 +77,7 @@ https://fee1in.netlify.app/
 ### 모바일
 |기본 화면|모달|일기 추가된 모습|
 |------|---|---|
-|<img src='https://user-images.githubusercontent.com/104069346/178148470-f8417c33-095b-493b-b6de-2ab61abd663d.jpg'/>|<img src='https://user-images.githubusercontent.com/104069346/178148466-ec7bebf0-f096-43fa-9c4f-05ba91d4e7b0.jpg'>|<img src='https://user-images.githubusercontent.com/104069346/178148467-cc508cd7-e0d9-4744-9283-5f58ac36b1a5.jpg'>|
+|<img src='https://user-images.githubusercontent.com/104069346/178148470-f8417c33-095b-493b-b6de-2ab61abd663d.jpg'/>|<img src='https://user-images.githubusercontent.com/104069346/178148466-ec7bebf0-f096-43fa-9c4f-05ba91d4e7b0.jpg'>|<img src='https://user-images.githubusercontent.com/104069346/180208815-db9fe397-5777-4112-8bad-a234a1eba2cf.jpg'>|
 
 </br>
 
