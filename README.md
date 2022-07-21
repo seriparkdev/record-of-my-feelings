@@ -68,7 +68,7 @@ https://fee1in.netlify.app/
 
 |작성했던 일기 삭제|
 |------|
-|<img src='https://user-images.githubusercontent.com/104069346/179919579-64204818-a959-4ad8-813b-be035eabf7c3.gif'/>|
+|<img src='https://user-images.githubusercontent.com/104069346/180228308-fbb19aef-e620-48a9-a101-2c4fb2bde19b.gif'/>|
 
 |작성했던 일기 수정|
 |------|
