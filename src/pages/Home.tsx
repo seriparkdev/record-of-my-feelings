@@ -4,7 +4,7 @@ import AddModal from "../components/AddModal";
 interface Data {
   diary: string;
   emoji: string;
-  id: string;
+  id: number;
   emojiImg: string;
   image: string;
 }
@@ -14,7 +14,7 @@ export default function Home() {
   const [items, setItems] = useState<Data[]>([]);
   const [diary, setDiary] = useState<string>("");
   const [localDiary, setLocalDiary] = useState<string>(diary);
-  const [id, setId] = useState<string>("");
+  const [id, setId] = useState<number>(0);
   const [isEdit, setIsEdit] = useState<boolean>(false);
   const today = new Date();
   const pepTalk = ["화이팅!", ":)", "좋은 순간을 남겨요", "오늘 어떠셨나요?"];
@@ -54,11 +54,11 @@ export default function Home() {
     );
   }
 
-  function onRemove(id: string) {
+  function onRemove(id: number) {
     setItems(items.filter((item) => item.id !== id));
   }
 
-  function onEdit(editId: string, newDiary: string) {
+  function onEdit(editId: number, newDiary: string) {
     setItems(
       items.map((item) =>
         item.id === editId ? { ...item, diary: newDiary } : item
@@ -118,7 +118,7 @@ export default function Home() {
                     alt={item.emoji}
                     value={item.id}
                     onClick={(e: React.MouseEvent<HTMLInputElement>) => {
-                      setId((e.target as HTMLInputElement).value);
+                      setId(Number((e.target as HTMLInputElement).value));
                       setIsEdit(false);
                     }}
                   ></input>
@@ -190,7 +190,7 @@ export default function Home() {
                       </div>
                     </div>
                   );
-                } else if (id === "") {
+                } else if (id === 0) {
                   setId(item.id);
                 }
               })
